@@ -1,3 +1,5 @@
+import User.User;
+import User.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -17,7 +19,6 @@ public class LoginTest {
         response = userClient.createUser(user);
         token = response.then().extract().body().path("accessToken");
     }
-
     @Test
     @DisplayName("Вход с существующим аккаунтом")
     public void shouldSuccessLogin() {
@@ -25,7 +26,6 @@ public class LoginTest {
         response.then().assertThat().body("success", equalTo(true))
                 .and().statusCode(200);
     }
-
     @Test
     @DisplayName("Попытка входа с несуществующим логином")
     public void loginWithInvalidLogin() {
@@ -38,7 +38,6 @@ public class LoginTest {
         response.then().assertThat().body("success", equalTo(false))
                 .and().statusCode(401);
     }
-
     @Test
     @DisplayName("Попытка входа с несуществующим паролем")
     public void loginWithInvalidPassword() {
@@ -51,9 +50,6 @@ public class LoginTest {
         response.then().assertThat().body("success", equalTo(false))
                 .and().statusCode(401);
     }
-
-
-
     @After
     public void teardown() {
         userClient.removeUser(token);

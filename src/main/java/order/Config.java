@@ -1,3 +1,5 @@
+package order;
+
 public class Config {
     public static String URL = "https://stellarburgers.nomoreparties.site/api";
     public static String REGISTER = "/auth/register";

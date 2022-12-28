@@ -1,5 +1,9 @@
+package User;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import order.Config;
+
 import static io.restassured.RestAssured.*;
 
 public class UserClient {

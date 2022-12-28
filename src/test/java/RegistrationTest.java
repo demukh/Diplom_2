@@ -1,4 +1,5 @@
-
+import User.User;
+import User.UserClient;
 import io.qameta.allure.junit4.DisplayName;
         import io.restassured.response.Response;
         import org.junit.Test;
@@ -27,8 +28,8 @@ public class RegistrationTest {
     public void registrationExistingAccountShouldBeErrorTest() {
         user = User.getExistUser();
         response = userClient.createUser(user);
-        response.then().assertThat().body("message", equalTo("User already exists"))
-                .and().statusCode(403);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("User already exists"));
     }
 
     @Test
@@ -36,8 +37,8 @@ public class RegistrationTest {
     public void registrationWithoutNameShouldBeErrorTest() {
         user = User.createUserWithoutName();
         response = userClient.createUser(user);
-        response.then().assertThat().body("message", equalTo("Email, password and name are required fields"))
-                .and().statusCode(403);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("Email, password and name are required fields"));
     }
 
     @Test
@@ -45,8 +46,8 @@ public class RegistrationTest {
     public void registrationWithoutEmailShouldBeErrorTest() {
         user = User.createUserWithoutEmail();
         response = userClient.createUser(user);
-        response.then().assertThat().body("message", equalTo("Email, password and name are required fields"))
-                .and().statusCode(403);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("Email, password and name are required fields"));
     }
 
     @Test
@@ -54,7 +55,7 @@ public class RegistrationTest {
     public void registrationWithoutPasswordShouldBeErrorTest() {
         user = User.createUserWithoutPassword();
         response = userClient.createUser(user);
-        response.then().assertThat().body("message", equalTo("Email, password and name are required fields"))
-                .and().statusCode(403);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("Email, password and name are required fields"));
     }
 }

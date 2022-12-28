@@ -1,3 +1,7 @@
+import User.User;
+import User.UserClient;
+import order.Order;
+import order.OrderClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
