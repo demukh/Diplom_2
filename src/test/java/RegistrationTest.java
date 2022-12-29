@@ -1,0 +1,61 @@
+import user.User;
+import user.UserClient;
+import io.qameta.allure.junit4.DisplayName;
+        import io.restassured.response.Response;
+        import org.junit.Test;
+
+
+        import static org.hamcrest.Matchers.*;
+
+public class RegistrationTest {
+    private User user;
+    private Response response;
+    private final UserClient userClient = new UserClient();
+
+    @Test
+    @DisplayName("Создание нового аккаунта")
+    public void successfullRegistrationTest() {
+        user = User.createRandomUser();
+        response = userClient.createUser(user);
+        String token = response.then().extract().body().path("accessToken");
+        userClient.removeUser(token);
+        response.then().assertThat().statusCode(200)
+                .and().body("accessToken", notNullValue());
+    }
+
+    @Test
+    @DisplayName("Попытка создания уже существующего аккаунта")
+    public void registrationExistingAccountShouldBeErrorTest() {
+        user = User.getExistUser();
+        response = userClient.createUser(user);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("User already exists"));
+    }
+
+    @Test
+    @DisplayName("Попытка создания акккаунта без имени")
+    public void registrationWithoutNameShouldBeErrorTest() {
+        user = User.createUserWithoutName();
+        response = userClient.createUser(user);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("Email, password and name are required fields"));
+    }
+
+    @Test
+    @DisplayName("Попытка создания акккаунта без почты")
+    public void registrationWithoutEmailShouldBeErrorTest() {
+        user = User.createUserWithoutEmail();
+        response = userClient.createUser(user);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("Email, password and name are required fields"));
+    }
+
+    @Test
+    @DisplayName("Попытка создания акккаунта без пароля")
+    public void registrationWithoutPasswordShouldBeErrorTest() {
+        user = User.createUserWithoutPassword();
+        response = userClient.createUser(user);
+        response.then().assertThat().statusCode(403)
+                .and().body("message", equalTo("Email, password and name are required fields"));
+    }
+}
