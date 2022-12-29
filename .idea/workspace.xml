@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96faa758-d640-4331-805d-cfc4ddb561bd" name="Changes" comment="add_allure">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="96faa758-d640-4331-805d-cfc4ddb561bd" name="Changes" comment="add_changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/order/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/order/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OrderClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/order/OrderClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/UserClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/GetOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GetOrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/OrderCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OrderCreationTest.java" afterDir="false" />
@@ -47,19 +43,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegistrationTest.registrationWithoutPasswordShouldBeErrorTest">
+  <component name="RunManager" selected="JUnit.All in Diplom_2">
+    <configuration name="All in Diplom_2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegistrationTest.registrationExistingAccountShouldBeErrorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diplom_2" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,16 +96,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTest.registrationWithoutPasswordShouldBeErrorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Diplom_2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RegistrationTest" />
-      <option name="METHOD_NAME" value="registrationWithoutPasswordShouldBeErrorTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RegistrationTest.successfullRegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diplom_2" />
       <option name="PACKAGE_NAME" value="" />
@@ -114,12 +110,12 @@
       <item itemvalue="JUnit.RegistrationTest.registrationExistingAccountShouldBeErrorTest" />
       <item itemvalue="JUnit.RegistrationTest.registrationWithoutEmailShouldBeErrorTest" />
       <item itemvalue="JUnit.RegistrationTest.registrationWithoutNameShouldBeErrorTest" />
-      <item itemvalue="JUnit.RegistrationTest.registrationWithoutPasswordShouldBeErrorTest" />
+      <item itemvalue="JUnit.All in Diplom_2" />
       <item itemvalue="JUnit.RegistrationTest.successfullRegistrationTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegistrationTest.registrationWithoutPasswordShouldBeErrorTest" />
+        <item itemvalue="JUnit.All in Diplom_2" />
         <item itemvalue="JUnit.RegistrationTest.registrationWithoutEmailShouldBeErrorTest" />
         <item itemvalue="JUnit.RegistrationTest.registrationExistingAccountShouldBeErrorTest" />
         <item itemvalue="JUnit.RegistrationTest.registrationWithoutNameShouldBeErrorTest" />
@@ -150,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671382620896</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add_changes">
+      <created>1672267412049</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672267412049</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,7 +170,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add_tests" />
     <MESSAGE value="add_allure" />
-    <option name="LAST_COMMIT_MESSAGE" value="add_allure" />
+    <MESSAGE value="add_changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="add_changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

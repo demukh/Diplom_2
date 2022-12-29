@@ -1,4 +1,4 @@
-package User;
+package user;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

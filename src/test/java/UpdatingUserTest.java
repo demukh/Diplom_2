@@ -1,5 +1,5 @@
-import User.User;
-import User.UserClient;
+import user.User;
+import user.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -30,8 +30,8 @@ public class UpdatingUserTest {
         response = userClient.updateUser(user, token);
         user.setEmail(email);
         user.setName(name);
-        response.then().assertThat().body("success", equalTo(true))
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("success", equalTo(true));
     }
 
     @Test
@@ -41,8 +41,8 @@ public class UpdatingUserTest {
         user.setPassword(password + "password");
         response = userClient.updateUser(user, token);
         user.setPassword(password);
-        response.then().assertThat().body("success", equalTo(true))
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("success", equalTo(true));
     }
 
     @Test
@@ -55,8 +55,8 @@ public class UpdatingUserTest {
         response = userClient.updateUser(user, "null");
         user.setEmail(email);
         user.setName(name);
-        response.then().assertThat().body("success", equalTo(false))
-                .and().statusCode(401);
+        response.then().assertThat().statusCode(401)
+                .and().body("success", equalTo(false));
     }
 
     @Test
@@ -66,8 +66,8 @@ public class UpdatingUserTest {
         user.setPassword(password + "password");
         response = userClient.updateUser(user, "null");
         user.setPassword(password);
-        response.then().assertThat().body("success", equalTo(false))
-                .and().statusCode(401);
+        response.then().assertThat().statusCode(401)
+                .and().body("success", equalTo(false));
     }
 
     @After

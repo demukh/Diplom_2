@@ -1,5 +1,5 @@
-import User.User;
-import User.UserClient;
+import user.User;
+import user.UserClient;
 import order.Order;
 import order.OrderClient;
 import io.qameta.allure.junit4.DisplayName;
@@ -18,8 +18,8 @@ public class OrderCreationTest {
     @DisplayName("Создание заказа без авторизации")
     public void shouldCreateOrderWithoutAuth() {
         response = orderClient.createOrder(Order.getOrderCorrect(), "token");
-        response.then().assertThat().body("success", equalTo(true))
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("success", equalTo(true));
     }
 
     @Test
@@ -30,16 +30,16 @@ public class OrderCreationTest {
         token = response.then().extract().body().path("accessToken");
         response = orderClient.createOrder(Order.getOrderCorrect(), token);
         userClient.removeUser(token);
-        response.then().assertThat().body("success", equalTo(true))
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("success", equalTo(true));
     }
 
     @Test
     @DisplayName("Создание заказа без ингредиентов")
     public void createOrderWithoutIngrShouldBeError() {
         response = orderClient.createOrder(Order.getOrderEmpty(), "token");
-        response.then().assertThat().body("message", equalTo("Ingredient ids must be provided"))
-                .and().statusCode(400);
+        response.then().assertThat().statusCode(400)
+                .and().body("message", equalTo("Ingredient ids must be provided"));
     }
 
     @Test
@@ -47,8 +47,8 @@ public class OrderCreationTest {
     public void shouldCreateOrderWithIngr() {
         order = Order.getOrderCorrect();
         response = orderClient.createOrder(order, "token");
-        response.then().assertThat().body("success", equalTo(true))
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("success", equalTo(true));
     }
 
     @Test

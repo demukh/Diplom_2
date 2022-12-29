@@ -1,5 +1,5 @@
-import User.User;
-import User.UserClient;
+import user.User;
+import user.UserClient;
 import io.qameta.allure.junit4.DisplayName;
         import io.restassured.response.Response;
         import org.junit.Test;
@@ -19,8 +19,8 @@ public class RegistrationTest {
         response = userClient.createUser(user);
         String token = response.then().extract().body().path("accessToken");
         userClient.removeUser(token);
-        response.then().assertThat().body("accessToken", notNullValue())
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("accessToken", notNullValue());
     }
 
     @Test

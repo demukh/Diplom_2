@@ -1,5 +1,5 @@
-import User.User;
-import User.UserClient;
+import user.User;
+import user.UserClient;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -36,7 +36,7 @@ public class LoginTest {
         user.setEmail(email);
         user.setPassword(password);
         response.then().assertThat().body("success", equalTo(false))
-                .and().statusCode(401);
+                .and().body("success", equalTo(false));
     }
     @Test
     @DisplayName("Попытка входа с несуществующим паролем")
@@ -47,8 +47,8 @@ public class LoginTest {
         response = userClient.loginUser(user, token);
         user.setEmail(email);
         user.setPassword(password);
-        response.then().assertThat().body("success", equalTo(false))
-                .and().statusCode(401);
+        response.then().assertThat().statusCode(401)
+                .and().body("success", equalTo(false));
     }
     @After
     public void teardown() {

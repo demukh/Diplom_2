@@ -1,5 +1,5 @@
-import User.User;
-import User.UserClient;
+import user.User;
+import user.UserClient;
 import order.Order;
 import order.OrderClient;
 import io.qameta.allure.junit4.DisplayName;
@@ -27,8 +27,8 @@ public class GetOrderTest {
         response = orderClient.createOrder(order, token);
         response = orderClient.getUserOrders(token);
         userClient.removeUser(token);
-        response.then().assertThat().body("orders", notNullValue())
-                .and().statusCode(200);
+        response.then().assertThat().statusCode(200)
+                .and().body("orders", notNullValue());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class GetOrderTest {
         response = orderClient.createOrder(order, "token");
         response = orderClient.createOrder(order, "token");
         response = orderClient.getUserOrders("token");
-        response.then().assertThat().body("message", equalTo("You should be authorised"))
-                .and().statusCode(401);
+        response.then().assertThat().statusCode(401)
+                .and().body("message", equalTo("You should be authorised"));
     }
 }
